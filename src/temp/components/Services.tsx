@@ -1,4 +1,3 @@
-import './Services.scss';
 import { IconGrid, IconSearch } from './icons'
 import { serviceCards } from '../data/content'
 

@@ -1,0 +1,30 @@
+/* ---- 주요 서비스 ---- */
+.services{overflow:hidden;} /* prevent horizontal scrollbar from bleed */
+.services .grid-2 {
+  display: flex;
+  align-items: center; /* 텍스트 상하 중앙정렬 */
+  gap: 80px; /* 패널을 더 오른쪽으로 밀기 위해 간격 넓힘 */
+}
+.services .grid-2 > div:first-child {
+  flex: 0 0 380px; /* 텍스트가 뭉개지지 않도록 너비 확장 */
+}
+.services .service-panel {
+  flex: 0 0 880px; /* 패널은 고정 너비 유지하며 우측으로 더 빠짐 */
+}
+.service-panel{background:var(--light);border:1px solid var(--border);border-radius:18px;padding:26px;}
+.service-panel .panel-head{margin-bottom:20px;}
+.service-panel .panel-head .t{font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;}
+.service-panel .panel-head .t svg{color:var(--blue-dark);}
+.service-panel .panel-head .d{font-size:13px;color:var(--muted);margin-top:5px;}
+.service-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;}
+.svc-card .ci{width:40px;height:40px;border-radius:10px;background:var(--blue-soft);color:var(--blue-dark);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.svc-card h4{font-size:16px;font-weight:700;margin-bottom:8px;}
+.svc-card p{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:14px;}
+.svc-card .chips{display:flex;flex-wrap:wrap;gap:6px;}
+.svc-card .chip{font-size:11px;background:var(--light-2);color:var(--muted);padding:4px 9px;border-radius:6px;}
+
+
+@media (max-width: 900px) {
+  .service-cards { grid-template-columns: 1fr; }
+}

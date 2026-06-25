@@ -1,4 +1,3 @@
-import './DataChart.scss';
 import { chartBars, chartXLabels, hBars } from '../data/content'
 
 export default function DataChart() {

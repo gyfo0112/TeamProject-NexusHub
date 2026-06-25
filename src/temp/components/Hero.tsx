@@ -1,4 +1,3 @@
-import './Hero.scss';
 import { IconSearch } from './icons'
 
 const recentTags = ['1234-5678-9012', '9876-5432-1011']

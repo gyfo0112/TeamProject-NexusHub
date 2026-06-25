@@ -1,4 +1,3 @@
-import './Footer.scss';
 import { IconPin, IconFax, IconPhone, IconMail } from './icons'
 
 interface FootCol {

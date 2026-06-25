@@ -1,4 +1,3 @@
-import './Terminal.scss';
 export default function Terminal() {
   return (
     <section className="terminal">

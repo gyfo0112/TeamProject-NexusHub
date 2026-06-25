@@ -1,0 +1,30 @@
+/* ---- 데이터 예측 (차트) ---- */
+.data .grid-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 120px; /* 중앙 공백을 넓게 확보 */
+}
+.data .grid-2 > div:last-child {
+  flex: 0 0 480px; /* 텍스트 너비 좀 더 증가 */
+}
+.data .grid-2 > div:first-child {
+  flex: 0 0 520px; /* 차트 카드 너비 축소 */
+}
+.chart-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(15,23,42,.06);}
+.chart-card .ct{font-size:15px;font-weight:800;margin-bottom:16px;}
+.chart-head{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:10px;}
+.chart-head .leg{display:flex;align-items:center;gap:5px;color:var(--green);}
+.chart-head .leg .sw{width:9px;height:9px;border-radius:2px;background:var(--green);}
+.bars{display:flex;align-items:flex-end;gap:10px;height:120px;padding-bottom:8px;border-bottom:1px solid var(--light-2);}
+.bars .bar{flex:1;border-radius:5px 5px 0 0;background:var(--green);}
+.bars .bar.muted{background:#dbe2ea;}
+.bar-x{display:flex;gap:10px;margin-top:6px;}
+.bar-x span{flex:1;text-align:center;font-size:10px;color:var(--muted-2);}
+.hbars{margin-top:22px;}
+.hbars .ct2{font-size:14px;font-weight:700;margin-bottom:14px;}
+.hbar{margin-bottom:14px;}
+.hbar .lab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px;}
+.hbar .track{height:7px;border-radius:999px;background:var(--light-2);overflow:hidden;}
+.hbar .fill{height:100%;border-radius:999px;}
+

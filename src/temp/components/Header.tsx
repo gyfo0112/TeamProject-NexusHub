@@ -1,31 +1,17 @@
-import './Header.scss';
 import { IconUser, IconLock } from './icons'
-import { useState, useEffect } from 'react'
 
 const menu = ['허브소개', '배송조회', '회사연혁', '물류상담', '고객센터']
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <header className={isScrolled ? 'scrolled' : ''}>
+    <header>
       <div className="container">
         <nav className="nav">
           <a href="#" className="logo">
-            <span className="mark">
-              <img src="/Logo.svg" alt="NexusHub Logo" />
-            </span>
+            <span className="mark">N</span>
             <span>
               <span className="name">NexusHub</span>
-              <span className="sub">남양주 터미널</span>
+              <span className="sub">남양주주터미널</span>
             </span>
           </a>
           <ul className="nav-menu">
@@ -36,7 +22,7 @@ export default function Header() {
             ))}
           </ul>
           <div className="nav-right">
-            <a href="/old-version.html" className="login">
+            <a href="#" className="login">
               <IconUser />로그인
             </a>
             <a href="#" className="staff">

@@ -1,4 +1,3 @@
-import './Help.scss';
 import { Fragment } from 'react'
 import { IconBox, IconTruck, IconHeadset } from './icons'
 import { helpCards, type HelpCard } from '../data/content'

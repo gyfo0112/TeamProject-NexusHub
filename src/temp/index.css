@@ -1,0 +1,248 @@
+/* ============================================================
+   [ 이미지 넣는 방법 ]
+   · 배경 이미지 섹션(.hero, .terminal): 해당 규칙의
+     background-image 주석을 풀고 파일 경로만 넣으면 됩니다.
+     (public 폴더에 이미지를 두고 url('/파일명.jpg') 형태로)
+   · 일반 이미지(.img-placeholder): 해당 컴포넌트에서 <img>로 교체.
+   ============================================================ */
+
+:root{
+  --blue:#2563eb; --blue-dark:#1d4ed8; --blue-soft:#dbeafe;
+  --orange:#f59e0b; --orange-dark:#ea8a08;
+  --navy:#0f172a; --text:#1e293b;
+  --muted:#64748b; --muted-2:#94a3b8;
+  --light:#f8fafc; --light-2:#f1f5f9; --border:#e2e8f0;
+  --green:#16a34a; --green-soft:#dcfce7;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Apple SD Gothic Neo','Pretendard',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+  color:var(--text);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+img{display:block;max-width:100%;}
+button{font-family:inherit;}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+.img-placeholder{
+  background:#e9edf2;
+  background-image:linear-gradient(135deg,#eef1f5 25%,#e4e8ee 25%,#e4e8ee 50%,#eef1f5 50%,#eef1f5 75%,#e4e8ee 75%);
+  background-size:24px 24px;
+  display:flex;align-items:center;justify-content:center;
+  color:#aab2bd;font-size:13px;letter-spacing:.02em;overflow:hidden;
+}
+
+/* ---- 배지 ---- */
+.badge{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:6px 15px;border-radius:999px;}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:currentColor;}
+.badge-blue{background:var(--blue);color:#fff;}
+.badge-blue-soft{background:var(--blue-soft);color:var(--blue-dark);}
+.badge-orange{background:#fef3c7;color:var(--orange-dark);}
+.badge-green{background:var(--green-soft);color:var(--green);}
+
+/* ---- 버튼 ---- */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:13px 26px;border-radius:10px;cursor:pointer;border:none;transition:.2s;}
+.btn-orange{background:var(--orange);color:#fff;}
+.btn-orange:hover{background:var(--orange-dark);}
+.btn-ghost{background:#fff;color:var(--text);border:1px solid var(--border);}
+.btn-ghost:hover{background:var(--light-2);}
+.btn-outline-white{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.45);}
+.btn-outline-white:hover{background:rgba(255,255,255,.2);}
+
+/* ============================================================ HEADER */
+header{position:absolute;top:0;left:0;right:0;z-index:50;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;}
+.logo .mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--blue),var(--blue-dark));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px;}
+.logo .name{font-size:18px;font-weight:800;line-height:1.05;display:block;}
+.logo .sub{font-size:11px;font-weight:500;opacity:.85;}
+.nav-menu{display:flex;gap:32px;}
+.nav-menu a{color:#fff;font-size:15px;font-weight:500;opacity:.92;}
+.nav-menu a:hover{opacity:1;}
+.nav-right{display:flex;align-items:center;gap:18px;}
+.nav-right .login{color:#fff;font-size:14px;display:flex;align-items:center;gap:6px;opacity:.92;}
+.nav-right .staff{background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:9px 16px;border-radius:8px;display:flex;align-items:center;gap:6px;}
+
+/* ============================================================ HERO */
+.hero{
+  position:relative;min-height:660px;display:flex;align-items:center;
+  /* background-image:url('/이미지경로.jpg'); */  /* ← 배경 이미지 */
+  background-color:#5b6470;background-size:cover;background-position:center;color:#fff;
+}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,28,40,.45),rgba(20,28,40,.32));}
+.hero .container{position:relative;z-index:2;text-align:center;width:100%;padding:110px 24px 60px;}
+.hero .badge{margin-bottom:22px;}
+.hero-sub{font-size:16px;opacity:.93;margin-bottom:18px;line-height:1.7;}
+.hero h1{font-size:46px;font-weight:800;line-height:1.28;margin-bottom:34px;text-shadow:0 2px 18px rgba(0,0,0,.25);}
+.hero h1 .blue{color:#60a5fa;display:block;margin-top:6px;font-size:52px;}
+
+.search-bar{max-width:680px;margin:0 auto;background:#fff;border-radius:12px;display:flex;align-items:center;padding:8px;box-shadow:0 18px 44px rgba(0,0,0,.24);}
+.search-bar .ico{padding:0 8px 0 14px;color:var(--muted-2);display:flex;}
+.search-bar input{flex:1;border:none;outline:none;font-size:15px;color:var(--text);padding:12px 6px;background:transparent;}
+.search-bar button{background:var(--orange);color:#fff;border:none;cursor:pointer;font-size:15px;font-weight:600;padding:13px 22px;border-radius:9px;white-space:nowrap;}
+.search-bar button:hover{background:var(--orange-dark);}
+.recent{margin-top:16px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:13px;}
+.recent .label{opacity:.85;}
+.recent .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:5px 12px;border-radius:7px;backdrop-filter:blur(4px);}
+
+/* ============================================================ SECTION 공통 */
+section{padding:92px 0;}
+.sec-title{font-size:34px;font-weight:800;line-height:1.32;margin:16px 0 18px;}
+.sec-desc{color:var(--muted);font-size:16px;line-height:1.85;margin-bottom:26px;white-space:pre-line;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+
+/* ---- 주요 서비스 ---- */
+.service-panel{background:var(--light);border:1px solid var(--border);border-radius:18px;padding:26px;}
+.service-panel .panel-head{margin-bottom:20px;}
+.service-panel .panel-head .t{font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;}
+.service-panel .panel-head .t svg{color:var(--blue-dark);}
+.service-panel .panel-head .d{font-size:13px;color:var(--muted);margin-top:5px;}
+.service-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;}
+.svc-card .ci{width:40px;height:40px;border-radius:10px;background:var(--blue-soft);color:var(--blue-dark);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.svc-card h4{font-size:16px;font-weight:700;margin-bottom:8px;}
+.svc-card p{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:14px;}
+.svc-card .chips{display:flex;flex-wrap:wrap;gap:6px;}
+.svc-card .chip{font-size:11px;background:var(--light-2);color:var(--muted);padding:4px 9px;border-radius:6px;}
+
+/* ---- 픽업 파트너 ---- */
+.partner{
+  position:relative;overflow:hidden;background:#fff;
+  /* section 자체가 flex — 이미지가 왼쪽 끝에 붙음 */
+  display:flex;align-items:center;min-height:360px;
+}
+/* 이미지 컬럼: viewport 너비의 42%, 왼쪽 끝부터 */
+.partner-img-col{
+  flex:0 0 42%;align-self:stretch;display:flex;
+}
+/* D자: 직사각형 + 오른쪽 반원 */
+.partner-img-el{
+  width:100%;
+  border-radius:0 180px 180px 0;  /* 반지름 = min-height/2 = 180px */
+  object-fit:cover;
+}
+/* 텍스트 컬럼: 나머지 공간 */
+.partner-text-col{
+  flex:1;padding:60px 60px 60px 64px;
+}
+.partner-text{max-width:480px;}
+.partner-text .sec-title{font-size:32px;line-height:1.3;margin-top:14px;}
+.partner-text .sec-desc{font-size:15px;}
+/* 오른쪽 역D자 장식 — border-right 제거로 C/역D 형태 */
+.partner-ring{
+  position:absolute;
+  right:-60px;         /* 중앙을 섹션 안쪽에 두어 호 전체가 보이게 */
+  top:50%;transform:translateY(-50%);
+  width:380px;height:380px;border-radius:50%;
+  border:40px solid var(--orange);
+  border-right-color:transparent;   /* ← 오른쪽 호 제거 → 역D자(⊃) */
+  opacity:.95;pointer-events:none;
+}
+
+/* ---- 위치가 아니라 (대시보드) ---- */
+.ops{background:var(--light);}
+.dash{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(15,23,42,.06);}
+.dash-head{font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:600;}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;}
+.dash-stats .st{background:var(--light);border-radius:10px;padding:14px;}
+.dash-stats .st .k{font-size:12px;color:var(--muted);}
+.dash-stats .st .v{font-size:22px;font-weight:800;margin-top:4px;}
+.dash-table .row{display:flex;align-items:center;gap:10px;padding:11px 4px;border-bottom:1px solid var(--light-2);}
+.dash-table .row .code{font-size:13px;font-weight:700;width:64px;flex:none;}
+.dash-table .row .where{flex:1;}
+.dash-table .row .where .w1{font-size:13px;font-weight:600;}
+.dash-table .row .where .w2{font-size:11px;color:var(--muted-2);}
+.dash-table .row .pill{font-size:11px;padding:4px 10px;border-radius:999px;font-weight:600;flex:none;}
+.pill-blue{background:var(--blue-soft);color:var(--blue-dark);}
+.pill-green{background:var(--green-soft);color:var(--green);}
+.pill-orange{background:#fef3c7;color:var(--orange-dark);}
+.pill-gray{background:var(--light-2);color:var(--muted);}
+.dash-cta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;}
+.dash-cta .cta{background:var(--blue-soft);color:var(--blue-dark);border-radius:10px;padding:14px 10px;text-align:center;font-size:12px;font-weight:700;line-height:1.4;}
+.dash-cta .cta span{display:block;font-size:10px;font-weight:500;color:var(--blue);opacity:.8;margin-top:6px;}
+
+/* ---- 데이터 예측 (차트) ---- */
+.chart-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(15,23,42,.06);}
+.chart-card .ct{font-size:15px;font-weight:800;margin-bottom:16px;}
+.chart-head{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:10px;}
+.chart-head .leg{display:flex;align-items:center;gap:5px;color:var(--green);}
+.chart-head .leg .sw{width:9px;height:9px;border-radius:2px;background:var(--green);}
+.bars{display:flex;align-items:flex-end;gap:10px;height:120px;padding-bottom:8px;border-bottom:1px solid var(--light-2);}
+.bars .bar{flex:1;border-radius:5px 5px 0 0;background:var(--green);}
+.bars .bar.muted{background:#dbe2ea;}
+.bar-x{display:flex;gap:10px;margin-top:6px;}
+.bar-x span{flex:1;text-align:center;font-size:10px;color:var(--muted-2);}
+.hbars{margin-top:22px;}
+.hbars .ct2{font-size:14px;font-weight:700;margin-bottom:14px;}
+.hbar{margin-bottom:14px;}
+.hbar .lab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px;}
+.hbar .track{height:7px;border-radius:999px;background:var(--light-2);overflow:hidden;}
+.hbar .fill{height:100%;border-radius:999px;}
+
+/* ---- 스마트 터미널 (다크) ---- */
+.terminal{
+  position:relative;color:#fff;text-align:center;padding:120px 0;
+  /* background-image:url('/이미지경로.jpg'); */  /* ← 배경 이미지 */
+  background-color:#222a35;background-size:cover;background-position:center;
+}
+.terminal::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.62),rgba(15,23,42,.72));}
+.terminal .container{position:relative;z-index:2;}
+.terminal h2{font-size:38px;font-weight:800;line-height:1.3;margin:18px 0;text-shadow:0 2px 14px rgba(0,0,0,.4);}
+.terminal p{font-size:16px;opacity:.9;line-height:1.85;margin-bottom:28px;white-space:pre-line;}
+
+/* ---- 무엇을 도와드릴까요 ---- */
+.help{text-align:center;}
+.help .sec-title{font-size:32px;}
+.help-sub{color:var(--muted);font-size:16px;margin-bottom:46px;}
+.help-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:left;}
+.help-card{border:1px solid var(--border);border-radius:16px;padding:26px;transition:.2s;}
+.help-card:hover{box-shadow:0 14px 34px rgba(15,23,42,.08);transform:translateY(-3px);}
+.help-card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.help-card .hi{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.hi-orange{background:#fef3c7;color:var(--orange-dark);}
+.hi-green{background:var(--green-soft);color:var(--green);}
+.hi-red{background:#fee2e2;color:#dc2626;}
+.help-card .htag{font-size:11px;font-weight:600;padding:5px 11px;border-radius:999px;}
+.htag-orange{background:#fef3c7;color:var(--orange-dark);}
+.htag-green{background:var(--green-soft);color:var(--green);}
+.htag-red{background:#fee2e2;color:#dc2626;}
+.help-card h4{font-size:17px;font-weight:700;margin-bottom:10px;}
+.help-card p{font-size:13.5px;color:var(--muted);line-height:1.7;}
+
+/* ============================================================ FOOTER */
+footer{background:var(--navy);color:#cbd5e1;padding:64px 0 28px;}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr .8fr 1fr 1.2fr;gap:28px;}
+.foot-brand .logo{color:#fff;margin-bottom:16px;}
+.foot-brand .logo .name{color:#fff;}
+.foot-brand p{font-size:13px;color:var(--muted-2);line-height:1.7;margin-bottom:20px;}
+.foot-brand .addr-t{font-size:14px;font-weight:700;color:#fff;margin-bottom:10px;}
+.foot-brand .addr{font-size:13px;color:var(--muted-2);display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.foot-brand .sns{display:flex;gap:10px;margin-top:16px;}
+.foot-brand .sns span{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#cbd5e1;}
+.foot-col h5{font-size:14px;font-weight:700;color:#fff;margin-bottom:16px;}
+.foot-col a{display:block;font-size:13px;color:var(--muted-2);margin-bottom:10px;}
+.foot-col a:hover{color:#fff;}
+.foot-cs h5{font-size:14px;font-weight:700;color:#fff;margin-bottom:14px;}
+.foot-cs .cs-link{display:block;font-size:13px;color:var(--muted-2);margin-bottom:8px;}
+.foot-cs .cs-link:last-of-type{margin-bottom:18px;}
+.foot-cs .cs-link:hover{color:#fff;}
+.foot-cs .tel{font-size:24px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.foot-cs .hrs{font-size:12.5px;color:var(--muted-2);line-height:1.7;}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:22px;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--muted-2);}
+.foot-bottom .links{display:flex;gap:18px;}
+.foot-bottom .links a:hover{color:#fff;}
+
+@media (max-width:900px){
+  .grid-2{grid-template-columns:1fr;gap:36px;}
+  .nav-menu{display:none;}
+  .service-cards,.help-cards{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+  .hero h1{font-size:34px;} .hero h1 .blue{font-size:38px;}
+  .partner-ring{display:none;}
+  .partner{flex-direction:column;min-height:auto;}
+  .partner-img-col{flex:none;width:100%;height:220px;}
+  .partner-img-el{border-radius:0 110px 110px 0;}
+  .partner-text-col{padding:32px 24px;}
+}

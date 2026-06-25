@@ -1,0 +1,20 @@
+/* ============================================================ HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:all .3s;}
+header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.15);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;}
+.logo .mark{width:40px;height:40px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;}
+.logo .mark img{height:22px;width:auto;}
+.logo .name{font-size:18px;font-weight:800;line-height:1.05;display:block;}
+.logo .sub{font-size:11px;font-weight:500;opacity:.85;}
+.nav-menu{display:flex;gap:32px;}
+.nav-menu a{color:#fff;font-size:15px;font-weight:500;opacity:.92;}
+.nav-menu a:hover{opacity:1;}
+.nav-right{display:flex;align-items:center;gap:18px;}
+.nav-right .login{color:#fff;font-size:14px;display:flex;align-items:center;gap:6px;opacity:.92;}
+.nav-right .staff{background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:9px 16px;border-radius:8px;display:flex;align-items:center;gap:6px;}
+
+
+@media (max-width: 900px) {
+  .nav-menu { display: none; }
+}
