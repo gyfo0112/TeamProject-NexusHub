@@ -1,1 +1,0 @@
-export default function ConsultingContract() { return (<div style={{ paddingTop: '160px', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><h1>ConsultingContract.tsx</h1></div>); }
