@@ -1,0 +1,1 @@
+export default function TrackingPickup() { return (<div style={{ paddingTop: '160px', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><h1>TrackingPickup.tsx</h1></div>); }

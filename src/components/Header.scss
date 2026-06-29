@@ -7,12 +7,107 @@ header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-
 .logo .mark img{height:22px;width:auto;}
 .logo .name{font-size:18px;font-weight:800;line-height:1.05;display:block;}
 .logo .sub{font-size:11px;font-weight:500;opacity:.85;}
-.nav-menu{display:flex;gap:32px;}
-.nav-menu a{color:#fff;font-size:15px;font-weight:500;opacity:.92;}
-.nav-menu a:hover{opacity:1;}
-.nav-right{display:flex;align-items:center;gap:18px;}
-.nav-right .login{color:#fff;font-size:14px;display:flex;align-items:center;gap:6px;opacity:.92;}
-.nav-right .staff{background:var(--blue);color:#fff;font-size:14px;font-weight:600;padding:9px 16px;border-radius:80px;display:flex;align-items:center;gap:6px;}
+.nav-menu {
+  display: flex;
+  gap: 32px;
+  height: 100%;
+
+  .nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &:hover .dropdown-wrapper {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+
+  .nav-link {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: .92;
+    transition: .2s;
+    padding: 20px 0; // Hover hit area
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .dropdown-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw; // 화면 전체 너비
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  .dropdown {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+    padding: 16px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; // 일렬로 가운데 정렬
+    gap: 48px; // 쭉 퍼지도록 간격 넓게
+
+    a {
+      display: block;
+      color: var(--text, #1e293b);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 80px;
+      opacity: 0.85;
+      transition: all .2s;
+
+      &:hover {
+        background: var(--light-2, #f1f5f9);
+        color: var(--blue, #2563eb);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  
+  .login {
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: .92;
+  }
+  
+  .staff {
+    background: var(--blue);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
 
 
 @media (max-width: 900px) {

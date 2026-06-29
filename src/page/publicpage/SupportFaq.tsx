@@ -1,0 +1,1 @@
+export default function SupportFaq() { return (<div style={{ paddingTop: '160px', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><h1>SupportFaq.tsx</h1></div>); }
