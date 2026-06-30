@@ -209,3 +209,79 @@
     padding-bottom: 60px;
   }
 }
+
+.sub-hero-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.80);
+  margin-top: 10px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+/* 사이드바 컬럼 (사이드바 + 추가 박스) */
+.sidebar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.sidebar-col > .sidebar {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 0;
+}
+
+/* 상담 진행 절차 박스 */
+.sidebar-extra {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.02);
+  padding: 28px 24px;
+}
+
+.consult-steps {
+  &__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  &__num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  &__text {
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+  }
+}
