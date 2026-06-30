@@ -1,12 +1,14 @@
 import './Header.scss';
 import { IconUser, IconLock } from './icons'
 import { useState, useEffect } from 'react'
+import { Menu, X } from 'lucide-react'
 
 import { Link } from 'react-router-dom'
 import { menus } from '../data/menuData'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +19,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={isScrolled ? 'scrolled' : ''}>
+    <header className={`${isScrolled ? 'scrolled' : ''} ${isMobileOpen ? 'mobile-open' : ''}`}>
       <div className="container">
         <nav className="nav">
           <Link to="/" className="logo">
@@ -29,6 +31,8 @@ export default function Header() {
               <span className="sub">남양주 터미널</span>
             </span>
           </Link>
+          
+          {/* Desktop Menu */}
           <ul className="nav-menu">
             {menus.map((menuItem) => (
               <li key={menuItem.title} className="nav-item">
@@ -45,6 +49,7 @@ export default function Header() {
               </li>
             ))}
           </ul>
+
           <div className="nav-right">
             <a href="/old-version.html" className="login">
               <IconUser />로그인
@@ -52,8 +57,39 @@ export default function Header() {
             <a href="#" className="staff">
               <IconLock />직원 로그인
             </a>
+            
+            {/* Hamburger Toggle */}
+            <button className="mobile-toggle" onClick={() => setIsMobileOpen(!isMobileOpen)}>
+              {isMobileOpen ? <X size={28} color="#fff" /> : <Menu size={28} color="#fff" />}
+            </button>
           </div>
         </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`mobile-menu ${isMobileOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-inner">
+          {menus.map(menuItem => (
+            <div key={menuItem.title} className="mobile-nav-group">
+              <h4>{menuItem.title}</h4>
+              <ul>
+                {menuItem.sub.map(subItem => (
+                  <li key={subItem.label}>
+                    <Link to={subItem.path} onClick={() => setIsMobileOpen(false)}>{subItem.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div className="mobile-nav-footer">
+            <a href="/old-version.html" className="mobile-login">
+              <IconUser />로그인
+            </a>
+            <a href="#" className="mobile-staff">
+              <IconLock />직원 로그인
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   )
