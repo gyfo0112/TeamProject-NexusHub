@@ -51,12 +51,12 @@ export default function Header() {
           </ul>
 
           <div className="nav-right">
-            <a href="/old-version.html" className="login">
+            <Link to="/login" className="login">
               <IconUser />로그인
-            </a>
-            <a href="#" className="staff">
+            </Link>
+            <Link to="/admin/login" className="staff">
               <IconLock />직원 로그인
-            </a>
+            </Link>
             
             {/* Hamburger Toggle */}
             <button className="mobile-toggle" onClick={() => setIsMobileOpen(!isMobileOpen)}>
@@ -82,12 +82,12 @@ export default function Header() {
             </div>
           ))}
           <div className="mobile-nav-footer">
-            <a href="/old-version.html" className="mobile-login">
+            <Link to="/login" className="mobile-login" onClick={() => setIsMobileOpen(false)}>
               <IconUser />로그인
-            </a>
-            <a href="#" className="mobile-staff">
+            </Link>
+            <Link to="/admin/login" className="mobile-staff" onClick={() => setIsMobileOpen(false)}>
               <IconLock />직원 로그인
-            </a>
+            </Link>
           </div>
         </div>
       </div>
