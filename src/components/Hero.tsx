@@ -19,7 +19,7 @@ export default function Hero() {
           우리 동네를 가장
           <br />
           잘 아는 배송 파트너
-          <span className="blue">NexusHub</span>
+          <span className="brand-name">Nexus<span className="hub">Hub</span></span>
         </h1>
         <div className="search-bar">
           <span className="ico">

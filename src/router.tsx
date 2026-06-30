@@ -11,6 +11,8 @@ import History from "./page/publicpage/History";
 import TrackingWaybill from "./page/publicpage/TrackingWaybill";
 import TrackingNeighborhood from "./page/publicpage/TrackingNeighborhood";
 import TrackingPickup from "./page/publicpage/TrackingPickup";
+import Login from "./page/publicpage/Login";
+import AdminLogin from "./page/publicpage/AdminLogin";
 
 import ConsultingInfo from "./page/publicpage/ConsultingInfo";
 import ConsultingApply from "./page/publicpage/ConsultingApply";
@@ -21,6 +23,14 @@ import SupportClaim from "./page/publicpage/SupportClaim";
 import SupportInquiry from "./page/publicpage/SupportInquiry";
 
 export const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
+  },
   {
     path: "/",
     element: <PublicLayout />,
