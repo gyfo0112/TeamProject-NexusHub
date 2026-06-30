@@ -23,6 +23,11 @@ header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-
       transform: translateY(0);
       pointer-events: auto;
     }
+
+    &:hover .nav-link {
+      color: #60a5fa;
+      opacity: 1;
+    }
   }
 
   .nav-link {
@@ -30,12 +35,8 @@ header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-
     font-size: 15px;
     font-weight: 500;
     opacity: .92;
-    transition: .2s;
+    transition: all .2s;
     padding: 20px 0; // Hover hit area
-
-    &:hover {
-      opacity: 1;
-    }
   }
 
   .dropdown-wrapper {
