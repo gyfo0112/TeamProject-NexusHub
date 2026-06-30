@@ -110,6 +110,121 @@ header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-
 }
 
 
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .nav-menu { display: none; }
+  
+  .nav-right .login,
+  .nav-right .staff {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  header.mobile-open {
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    top: 74px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 40;
+    padding: 24px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-bottom: 40px;
+  }
+
+  .mobile-nav-group {
+    h4 {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    a {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      display: block;
+      opacity: 0.9;
+    }
+  }
+
+  .mobile-nav-footer {
+    margin-top: 10px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    .mobile-login {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .mobile-staff {
+      background: var(--blue, #3b82f6);
+      color: #fff;
+    }
+  }
 }
