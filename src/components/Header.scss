@@ -1,6 +1,19 @@
-/* ============================================================ HEADER */
-header{position:fixed;top:0;left:0;right:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:all .3s;}
-header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.15);}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(15, 23, 42, 0.5); /* 드롭다운과 동일한 어두운 반투명 */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all .3s;
+}
+
+header.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15); /* 스크롤 시 그림자 추가 */
+}
 .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
 .logo{display:flex;align-items:center;gap:10px;color:#fff;}
 .logo .mark{width:40px;height:40px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;}
@@ -53,10 +66,11 @@ header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-
   }
 
   .dropdown {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
     padding: 16px 0;
     width: 100%;
     display: flex;
@@ -66,18 +80,16 @@ header.scrolled{background:rgba(15,23,42,.15);backdrop-filter:blur(16px);border-
 
     a {
       display: block;
-      color: var(--text, #1e293b);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 15px;
       font-weight: 600;
       padding: 8px 16px;
       border-radius: 80px;
-      opacity: 0.85;
       transition: all .2s;
 
       &:hover {
-        background: var(--light-2, #f1f5f9);
-        color: var(--blue, #2563eb);
-        opacity: 1;
+        background: transparent;
+        color: #60a5fa;
       }
     }
   }
