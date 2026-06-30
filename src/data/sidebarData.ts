@@ -1,8 +1,9 @@
-import { IconSpeaker, IconDocument, IconChat, IconUser, IconBox, IconMap, IconClock, IconSearch, IconTruck, IconHome, IconConsultChat, IconHelpCircle, IconFilePlus } from '../components/icons';
+import React from 'react';
+import { IconSpeaker, IconDocument, IconChat, IconUser, IconBox, IconMap, IconClock, IconSearch, IconTruck, IconHome, IconConsultChat, IconHelpCircle, IconFilePlus, IconQuestion, IconInfoCircle, IconPen } from '../components/icons';
 
 // 사이드바 전용 데이터 매핑
 // 각 top-level route (예: about, tracking, consulting, support) 별로 사이드바 구성을 정의합니다.
-export const sidebarData: Record<string, { title: string, items: { label: string, path: string, icon: any }[] }> = {
+export const sidebarData: Record<string, { title: string, items: { label: string, path: string, icon: React.FC<React.SVGProps<SVGSVGElement>> }[] }> = {
   about: {
     title: '허브소개',
     items: [

@@ -1,0 +1,252 @@
+.history-wrap {
+  .history-section {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 50px 60px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .title-area {
+      .badge {
+        color: #3b82f6;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+      }
+      
+      h2 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 16px;
+      }
+      
+      p {
+        color: #475569;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .stats-section {
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #f1f5f9;
+
+      .btn-report {
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #2563eb;
+        }
+      }
+    }
+
+    .stats-grid {
+      display: flex;
+      gap: 24px;
+      margin-top: 40px;
+
+      .stat-card {
+        flex: 1;
+        background-color: #f8fafc;
+        border-radius: 12px;
+        padding: 30px 40px;
+        
+        h3 {
+          font-size: 36px;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 8px;
+
+          span {
+            color: #3b82f6;
+          }
+        }
+
+        p {
+          font-size: 14px;
+          color: #64748b;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .timeline-section {
+    .title-area {
+      padding-bottom: 30px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .timeline-container {
+      position: relative;
+      margin-top: 60px;
+
+      .timeline-line {
+        position: absolute;
+        top: 0;
+        left: 140px;
+        width: 2px;
+        height: 100%;
+        background-color: #bfdbfe; // Light blue line
+        z-index: 1;
+      }
+
+      .timeline-year-group {
+        display: flex;
+        margin-bottom: 40px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .year-label {
+          width: 140px;
+          flex-shrink: 0;
+          font-size: 24px;
+          font-weight: 700;
+          color: #0f172a;
+          padding-top: 22px; // Aligns with the center of the month badge (24px padding + 32px/2) - (line-height/2)
+        }
+
+        .year-events {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding-left: 60px; // Distance from year label to cards
+          position: relative;
+
+          .event-card {
+            position: relative;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px 30px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: box-shadow 0.2s, border-color 0.2s;
+
+            &:hover {
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+              border-color: #bfdbfe;
+            }
+
+            .event-dot {
+              position: absolute;
+              left: -67px; // padding-left 60px + half of dot 7px = 67px
+              top: 40px; // padding 24px + half of badge 16px
+              transform: translateY(-50%);
+              width: 14px;
+              height: 14px;
+              background-color: #ffffff;
+              border: 3px solid #3b82f6;
+              border-radius: 50%;
+              z-index: 2;
+            }
+
+            .event-month {
+              width: 44px;
+              height: 44px;
+              flex-shrink: 0;
+              background-color: #eff6ff;
+              color: #3b82f6;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 16px;
+              font-weight: 700;
+            }
+
+            .event-text {
+              padding-top: 8px; // align slightly with the badge
+
+              h4 {
+                font-size: 18px;
+                font-weight: 700;
+                color: #1e293b;
+                margin-bottom: 8px;
+              }
+
+              p {
+                font-size: 15px;
+                color: #64748b;
+                line-height: 1.6;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 992px) {
+  .history-wrap {
+    .history-section {
+      padding: 30px 20px;
+
+      .stats-section .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .stats-grid {
+        flex-direction: column;
+      }
+
+      .timeline-container {
+        .timeline-line {
+          left: 20px; // Move line to the left edge
+        }
+
+        .timeline-year-group {
+          flex-direction: column;
+          
+          .year-label {
+            padding-top: 0;
+            margin-bottom: 20px;
+            padding-left: 50px; // Align with cards
+          }
+
+          .year-events {
+            padding-left: 50px;
+
+            .event-card {
+              .event-dot {
+                left: -37px; // Adjust for new padding
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
