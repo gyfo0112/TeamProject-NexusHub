@@ -1,8 +1,9 @@
-import { IconSpeaker, IconQuestion, IconDocument, IconChat, IconUser, IconBox, IconMap, IconClock, IconSearch, IconTruck, IconHome, IconInfoCircle, IconPen } from '../components/icons';
+import React from 'react';
+import { IconSpeaker, IconDocument, IconChat, IconUser, IconBox, IconMap, IconClock, IconSearch, IconTruck, IconHome, IconConsultChat, IconHelpCircle, IconFilePlus, IconQuestion, IconInfoCircle, IconPen } from '../components/icons';
 
 // 사이드바 전용 데이터 매핑
 // 각 top-level route (예: about, tracking, consulting, support) 별로 사이드바 구성을 정의합니다.
-export const sidebarData: Record<string, { title: string, items: { label: string, path: string, icon: any }[] }> = {
+export const sidebarData: Record<string, { title: string, items: { label: string, path: string, icon: React.FC<React.SVGProps<SVGSVGElement>> }[] }> = {
   about: {
     title: '허브소개',
     items: [
@@ -23,17 +24,17 @@ export const sidebarData: Record<string, { title: string, items: { label: string
   consulting: {
     title: '물류상담',
     items: [
-      { label: '상담안내', path: '/consulting/info', icon: IconInfoCircle },
-      { label: '상담신청', path: '/consulting/apply', icon: IconPen },
+      { label: '상담안내', path: '/consulting/info', icon: IconConsultChat },
+      { label: '상담신청', path: '/consulting/apply', icon: IconFilePlus },
       // 사이드바에만 추가로 들어가는 고객센터 하위 메뉴
-      { label: '자주묻는질문', path: '/support/faq', icon: IconQuestion },
+      { label: '자주묻는질문', path: '/support/faq', icon: IconHelpCircle },
     ]
   },
   support: {
     title: '고객센터',
     items: [
       { label: '공지사항', path: '/support/notice', icon: IconSpeaker },
-      { label: '자주묻는질문', path: '/support/faq', icon: IconQuestion },
+      { label: '자주묻는질문', path: '/support/faq', icon: IconHelpCircle },
       { label: '파손/분실 접수', path: '/support/claim', icon: IconDocument },
       { label: '1:1 문의', path: '/support/inquiry', icon: IconChat }, // 이미지에 나와있는 추가 메뉴
     ]
