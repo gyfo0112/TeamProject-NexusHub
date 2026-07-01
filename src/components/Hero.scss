@@ -34,3 +34,21 @@
   .hero h1 { font-size: 34px; }
   .hero h1 .brand-name { font-size: 38px; }
 }
+
+@media (max-width: 768px) {
+  .hero { min-height: 500px; }
+  .hero .container { padding: 100px 20px 40px; }
+  .hero h1 { font-size: 28px; }
+  .hero h1 .brand-name { font-size: 32px; }
+  .hero-sub { font-size: 14px; }
+  .recent { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 24px; }
+  .hero h1 .brand-name { font-size: 28px; }
+  .search-bar { flex-direction: column; padding: 0; background: transparent; box-shadow: none; }
+  .search-bar .ico { display: none; }
+  .search-bar input { width: 100%; background: #fff; border-radius: 9px; padding: 14px; margin-bottom: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .search-bar button { width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+}
