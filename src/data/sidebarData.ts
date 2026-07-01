@@ -12,10 +12,7 @@ import {
   IconHome,
   IconConsultChat,
   IconHelpCircle,
-  IconFilePlus,
-  IconQuestion,
-  IconInfoCircle,
-  IconPen,
+  IconFilePlus
 } from "../components/icons";
 
 // 사이드바 전용 데이터 매핑

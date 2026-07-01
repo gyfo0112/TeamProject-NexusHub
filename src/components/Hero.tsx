@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import './Hero.scss';
 import { IconSearch } from './icons'
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';

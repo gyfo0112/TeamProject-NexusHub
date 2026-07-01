@@ -17,7 +17,6 @@ export default function SupportNotice() {
     setSortOrder,
     searchInput,
     setSearchInput,
-    searchQuery,
     setSearchQuery,
     filteredAndSortedData
   } = useBoardFilter(noticeData, '전체');
@@ -107,7 +106,7 @@ export default function SupportNotice() {
           </div>
           <div className="table-body">
             {filteredAndSortedData.length > 0 ? (
-              filteredAndSortedData.map((notice, idx) => (
+              filteredAndSortedData.map((notice) => (
                 <div 
                   className={`table-row ${notice.isPinned ? 'pinned' : ''}`} 
                   key={notice.id}
