@@ -1,11 +1,73 @@
+import { useState, useEffect, useRef } from 'react';
 import './Hero.scss';
 import { IconSearch } from './icons'
+import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
 
 const recentTags = ['1234-5678-9012', '9876-5432-1011']
+const images = ['/terminal.png', '/van.png', '/factory.png'];
+// 무한 루프 스크롤을 위해 앞뒤로 복제본을 하나씩 둡니다.
+const extendedImages = [images[images.length - 1], ...images, images[0]];
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  // Auto Slide
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      goToNext();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  const goToPrev = () => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  const goToNext = () => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const togglePlay = () => setIsPlaying(!isPlaying);
+
+  // 트랜지션이 끝났을 때 눈속임으로 진짜 인덱스로 스위칭합니다.
+  const handleTransitionEnd = () => {
+    if (currentIndex === 0) {
+      setIsTransitioning(false);
+      setCurrentIndex(images.length);
+    } else if (currentIndex === extendedImages.length - 1) {
+      setIsTransitioning(false);
+      setCurrentIndex(1);
+    }
+  };
+
   return (
     <section className="hero">
+      {/* Slider Backgrounds */}
+      <div 
+        className="hero-slider" 
+        style={{ 
+          transform: `translateX(-${currentIndex * 100}%)`,
+          transition: isTransitioning ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none'
+        }}
+        onTransitionEnd={handleTransitionEnd}
+      >
+        {extendedImages.map((img, idx) => (
+          <div 
+            key={idx} 
+            className="hero-slide-bg"
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+      </div>
+
+      {/* Dark Overlay for readability */}
+      <div className="hero-overlay" />
+
       <div className="container">
         <span className="badge badge-blue">
           <span className="dot" />남양주 터미널 실시간 운영 중
@@ -36,6 +98,19 @@ export default function Hero() {
             </span>
           ))}
         </div>
+      </div>
+
+      {/* Slider Controls */}
+      <div className="hero-controls">
+        <button className="control-btn" onClick={goToPrev} aria-label="Previous image">
+          <ChevronLeft size={24} />
+        </button>
+        <button className="control-btn play-btn" onClick={togglePlay} aria-label="Play/Pause">
+          {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+        </button>
+        <button className="control-btn" onClick={goToNext} aria-label="Next image">
+          <ChevronRight size={24} />
+        </button>
       </div>
     </section>
   )
