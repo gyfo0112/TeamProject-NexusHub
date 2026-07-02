@@ -1,6 +1,18 @@
 import { NavLink } from "react-router-dom";
 
-const sidebarData = [
+type SidebarItem = {
+  label: string;
+  subLabel?: string;
+  path: string;
+  badge?: string;
+};
+
+type SidebarGroup = {
+  category: string;
+  items: SidebarItem[];
+};
+
+const sidebarData: SidebarGroup[] = [
   {
     category: "운영 대시보드",
     items: [
