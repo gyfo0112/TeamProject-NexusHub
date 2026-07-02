@@ -17,7 +17,7 @@ export default function SupportInquiryHistory() {
       </div>
       <div className="inquiry-list">
         {inquiryHistoryData.map((item) => (
-          <div className="inquiry-item" key={item.id}>
+          <div className="inquiry-item" key={item.id} onClick={() => setSelectedId(item.id)} style={{ cursor: 'pointer' }}>
             <div className="item-info">
               <span className={`badge ${item.status === '답변완료' ? 'completed' : 'processing'}`}>
                 {item.status}
@@ -27,7 +27,7 @@ export default function SupportInquiryHistory() {
                 <p>접수번호 {item.id} • {item.date}</p>
               </div>
             </div>
-            <button className="btn-view" onClick={() => setSelectedId(item.id)}>
+            <button className="btn-view">
               {item.status === '답변완료' ? '답변 보기' : '상세 보기'} <ChevronRight size={14} />
             </button>
           </div>
