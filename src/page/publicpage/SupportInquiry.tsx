@@ -18,6 +18,7 @@ export default function SupportInquiry() {
   const [phone, setPhone] = useState('');
   const [smsAgree, setSmsAgree] = useState(false);
   const [privacyAgree, setPrivacyAgree] = useState(false);
+  const [files, setFiles] = useState<number[]>([]);
 
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value;
@@ -25,6 +26,25 @@ export default function SupportInquiry() {
       setContent(val);
     }
   };
+
+  const handleMockUpload = () => {
+    if (files.length < 3) {
+      setFiles([...files, files.length + 1]);
+    } else {
+      alert('최대 3개까지만 첨부할 수 있습니다.');
+    }
+  };
+
+  const handleSubmit = () => {
+    if (!title.trim() || !content.trim() || !email.trim()) {
+      return alert('필수 항목(*표시)을 모두 입력해주세요.');
+    }
+    if (!privacyAgree) {
+      return alert('개인정보 수집 및 이용에 동의해주세요.');
+    }
+    alert('문의가 정상적으로 접수되었습니다. 담당자 확인 후 답변을 드릴 예정입니다.');
+  };
+
   const sidebarWidgets = (
     <>
       <div className="inquiry-sidebar-widget">
@@ -157,10 +177,19 @@ export default function SupportInquiry() {
 
           <div className="form-group">
             <label>파일 첨부 (선택)</label>
-            <div className="upload-area">
+            <div className="upload-area" onClick={handleMockUpload}>
               <Paperclip size={18} />
               <span>파일을 드래그하거나 클릭하여 첨부하세요 • 최대 3개, 각 5MB 이하</span>
             </div>
+            {files.length > 0 && (
+              <div style={{ marginTop: '12px', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                {files.map((f, idx) => (
+                  <div key={idx} style={{ padding: '8px 12px', background: '#f1f5f9', border: '1px solid #e2e8f0', borderRadius: '6px', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Paperclip size={14} color="#64748b" /> 첨부파일_{f}.png
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="section-title">
@@ -198,8 +227,8 @@ export default function SupportInquiry() {
               <a href="#" className="privacy-link">개인정보처리방침 확인하기 <ExternalLink size={14} /></a>
             </div>
             <div className="right-actions">
-              <button className="btn-draft">임시 저장</button>
-              <button className="btn-submit"><Send size={18} /> 문의 접수하기</button>
+              <button className="btn-draft" onClick={() => alert('임시 저장되었습니다.')}>임시 저장</button>
+              <button className="btn-submit" onClick={handleSubmit}><Send size={18} /> 문의 접수하기</button>
             </div>
           </div>
         </div>
