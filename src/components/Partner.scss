@@ -5,7 +5,7 @@
 }
 /* 이미지를 화면 왼쪽 가장자리에 절대 좌표로 고정 */
 .partner-bg-img{
-  position:absolute;left:0;top:0;bottom:0;width:42%;display:flex;
+  position:absolute;left:0;top:50%;transform:translateY(-50%);height:380px;width:42%;display:flex;
 }
 .partner-img-el{
   width:100%;height:100%;
@@ -36,7 +36,7 @@
   .partner { flex-direction: column; min-height: auto; padding: 40px 0; }
   .partner .grid-2 { display: flex; flex-direction: column; }
   .partner-spacer { display: none; }
-  .partner-bg-img { position: relative; width: 100%; max-width: 100%; height: 260px; margin-bottom: 32px; display: block; }
+  .partner-bg-img { position: relative; width: 100%; max-width: 100%; height: 260px; margin-bottom: 32px; display: block; top: auto; transform: none; }
   .partner-img-el { border-radius: 0 110px 110px 0; width: 80%; }
   .partner-text-col { width: 100%; padding: 0 24px; text-align: center; }
   .partner-text { max-width: 100%; margin: 0 auto; }
