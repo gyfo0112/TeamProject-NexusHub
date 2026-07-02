@@ -36,24 +36,31 @@ const sidebarData = [
 export default function AdminSidebar() {
   return (
     <aside className="admin-sidebar">
-      {sidebarData.map((group, idx) => (
-        <div className="sidebar-group" key={idx}>
-          <div className="group-title">{group.category}</div>
-          <ul className="group-list">
-            {group.items.map((item, itemIdx) => (
-              <li key={itemIdx}>
-                <NavLink 
-                  to={item.path} 
-                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-                >
-                  {item.label}
-                  {item.badge && <span className="badge">{item.badge}</span>}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <div className="current-terminal-box">
+        <span className="label">현재 터미널</span>
+        <span className="value">남양주 터미널</span>
+      </div>
+
+      <div className="sidebar-menus">
+        {sidebarData.map((group, idx) => (
+          <div className="sidebar-group" key={idx}>
+            <div className="group-title">{group.category}</div>
+            <ul className="group-list">
+              {group.items.map((item, itemIdx) => (
+                <li key={itemIdx}>
+                  <NavLink 
+                    to={item.path} 
+                    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                  >
+                    {item.label}
+                    {item.badge && <span className="badge">{item.badge}</span>}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </aside>
   );
 }

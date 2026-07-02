@@ -8,13 +8,6 @@ export default function AdminHeader() {
         <h1 className="logo">
           <span className="brand">NexusHub</span> <span className="divider">|</span> 직원 인트라넷
         </h1>
-        <div className="terminal-selector">
-          <select>
-            <option>남양주 터미널</option>
-            <option>강남 터미널</option>
-            <option>부산 터미널</option>
-          </select>
-        </div>
       </div>
 
       <div className="header-right">
