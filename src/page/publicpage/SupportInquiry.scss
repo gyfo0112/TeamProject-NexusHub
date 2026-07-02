@@ -267,7 +267,7 @@
     .row-split {
       display: flex;
       gap: 20px;
-      align-items: flex-end;
+      align-items: flex-start;
 
       .form-group {
         flex: 1;
@@ -277,8 +277,6 @@
       .priority-group {
         flex: none;
         width: 200px;
-        display: flex;
-        gap: 8px;
 
         button {
           flex: 1;
