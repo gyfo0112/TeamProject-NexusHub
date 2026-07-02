@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SubPageLayout from '../../components/SubPageLayout';
 import { sidebarData } from '../../data/sidebarData';
@@ -9,6 +10,21 @@ import {
 import './SupportInquiry.scss';
 
 export default function SupportInquiry() {
+  const [activeTab, setActiveTab] = useState<'write' | 'history'>('write');
+  const [priority, setPriority] = useState<'일반' | '긴급'>('일반');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [smsAgree, setSmsAgree] = useState(false);
+  const [privacyAgree, setPrivacyAgree] = useState(false);
+
+  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const val = e.target.value;
+    if (val.length <= 1000) {
+      setContent(val);
+    }
+  };
   const sidebarWidgets = (
     <>
       <div className="inquiry-sidebar-widget">
@@ -72,8 +88,12 @@ export default function SupportInquiry() {
       <div className="support-inquiry">
         
         <div className="tabs">
-          <button className="active"><Edit3 size={18} /> 문의 작성</button>
-          <button><List size={18} /> 내 문의 내역</button>
+          <button className={activeTab === 'write' ? 'active' : ''} onClick={() => setActiveTab('write')}>
+            <Edit3 size={18} /> 문의 작성
+          </button>
+          <button className={activeTab === 'history' ? 'active' : ''} onClick={() => setActiveTab('history')}>
+            <List size={18} /> 내 문의 내역
+          </button>
         </div>
 
         <div className="inquiry-form-card">
@@ -104,15 +124,21 @@ export default function SupportInquiry() {
             <div className="form-group priority-group">
               <label>우선순위</label>
               <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
-                <button className="active">일반</button>
-                <button>긴급</button>
+                <button 
+                  className={priority === '일반' ? 'active' : ''} 
+                  onClick={() => setPriority('일반')}
+                >일반</button>
+                <button 
+                  className={priority === '긴급' ? 'active' : ''} 
+                  onClick={() => setPriority('긴급')}
+                >긴급</button>
               </div>
             </div>
           </div>
 
           <div className="form-group" style={{ marginTop: '24px' }}>
             <label>문의 제목 <span className="required">*</span></label>
-            <input type="text" placeholder="문의 제목을 간략히 입력해 주세요" />
+            <input type="text" placeholder="문의 제목을 간략히 입력해 주세요" value={title} onChange={e => setTitle(e.target.value)} />
           </div>
 
           <div className="form-group">
@@ -120,10 +146,12 @@ export default function SupportInquiry() {
             <textarea 
               placeholder="문의 내용을 상세히 입력해 주세요.&#13;&#10;&#13;&#10;예) 운송장 번호, 발생 날짜, 구체적인 상황 등을 함께 적어주시면 더욱 빠른 처리가 가능합니다."
               rows={6}
+              value={content}
+              onChange={handleContentChange}
             ></textarea>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div className="helper-text"><Info size={14} /> 운송장 번호를 함께 기재하면 빠른 처리에 도움이 됩니다</div>
-              <div className="char-count">0 / 1000자</div>
+              <div className="char-count">{content.length} / 1000자</div>
             </div>
           </div>
 
@@ -144,7 +172,7 @@ export default function SupportInquiry() {
               <label>이메일 주소 <span className="required">*</span></label>
               <div className="input-wrapper">
                 <Mail size={18} className="input-icon" />
-                <input type="text" placeholder="example@email.com" />
+                <input type="text" placeholder="example@email.com" value={email} onChange={e => setEmail(e.target.value)} />
               </div>
               <div className="helper-text"><Info size={14} /> 답변 결과를 이메일로 받으실 수 있습니다</div>
             </div>
@@ -152,10 +180,10 @@ export default function SupportInquiry() {
               <label>휴대폰 번호</label>
               <div className="input-wrapper">
                 <Phone size={18} className="input-icon" />
-                <input type="text" placeholder="010-0000-0000" />
+                <input type="text" placeholder="010-0000-0000" value={phone} onChange={e => setPhone(e.target.value)} />
               </div>
               <label className="checkbox-label" style={{ marginTop: '8px' }}>
-                <input type="checkbox" />
+                <input type="checkbox" checked={smsAgree} onChange={e => setSmsAgree(e.target.checked)} />
                 답변 SMS 알림 수신 동의
               </label>
             </div>
@@ -164,7 +192,7 @@ export default function SupportInquiry() {
           <div className="form-footer">
             <div className="left-actions">
               <label className="checkbox-label primary">
-                <input type="checkbox" />
+                <input type="checkbox" checked={privacyAgree} onChange={e => setPrivacyAgree(e.target.checked)} />
                 개인정보 수집 및 이용에 동의합니다
               </label>
               <a href="#" className="privacy-link">개인정보처리방침 확인하기 <ExternalLink size={14} /></a>
