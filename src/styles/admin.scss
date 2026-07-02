@@ -84,12 +84,13 @@
   flex-direction: column;
 
   .current-terminal-box {
-    background-color: #273449;
-    padding: 16px 24px;
+    background-color: #2c3854;
+    padding: 8px 16px;
+    margin: 16px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #0f172a;
 
     .label { font-size: 12px; color: #94a3b8; }
     .value { font-size: 14px; font-weight: 700; color: white; }
@@ -133,6 +134,23 @@
             background-color: #3b82f6;
             color: white;
             font-weight: 600;
+
+            .nav-text .sub-label {
+              display: block;
+              font-size: 12px;
+              color: #bfdbfe;
+              margin-top: 4px;
+              font-weight: 400;
+            }
+          }
+
+          .nav-text {
+            display: flex;
+            flex-direction: column;
+            
+            .sub-label {
+              display: none;
+            }
           }
 
           .badge {
