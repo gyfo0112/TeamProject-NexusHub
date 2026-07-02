@@ -8,6 +8,10 @@ export default function SupportClaim() {
   const [trackingNum, setTrackingNum] = useState('');
   const [isVerified, setIsVerified] = useState(false);
   const [content, setContent] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [isAgreed, setIsAgreed] = useState(false);
+  const [photos, setPhotos] = useState<number[]>([]);
 
   const handleVerify = () => {
     if (trackingNum.trim().length > 0) {
@@ -23,6 +27,26 @@ export default function SupportClaim() {
       setContent(val);
     }
   };
+
+  const handleMockUpload = () => {
+    if (photos.length < 5) {
+      setPhotos([...photos, photos.length + 1]);
+    } else {
+      alert('최대 5장까지만 첨부할 수 있습니다.');
+    }
+  };
+
+  const handleSubmit = () => {
+    if (!isVerified) return alert('운송장 번호를 조회하여 확인해주세요.');
+    if (!name.trim()) return alert('접수자 성명을 입력해주세요.');
+    if (!phone.trim()) return alert('연락처를 입력해주세요.');
+    if (!content.trim()) return alert('피해 상세 내용을 입력해주세요.');
+    if (photos.length === 0) return alert('피해 사진을 최소 1장 이상 첨부해주세요.');
+    if (!isAgreed) return alert('개인정보 수집 및 이용에 동의해주세요.');
+
+    alert('✅ 클레임이 정상적으로 접수되었습니다. (영업일 기준 3~5일 소요)');
+  };
+
   const sidebarWarning = (
     <div className="claim-sidebar-warning">
       <h4><Info size={16} /> 접수 전 확인사항</h4>
@@ -98,11 +122,11 @@ export default function SupportClaim() {
           <div className="form-row split">
             <div className="form-group">
               <label>접수자 성명 <span className="required">*</span></label>
-              <input type="text" placeholder="성명을 입력하세요" />
+              <input type="text" placeholder="성명을 입력하세요" value={name} onChange={e => setName(e.target.value)} />
             </div>
             <div className="form-group">
               <label>연락처 <span className="required">*</span></label>
-              <input type="text" placeholder="010-0000-0000" />
+              <input type="text" placeholder="010-0000-0000" value={phone} onChange={e => setPhone(e.target.value)} />
             </div>
           </div>
 
@@ -119,7 +143,7 @@ export default function SupportClaim() {
 
           <div className="form-group">
             <label>피해 사진 첨부 <span className="required">*</span> <span className="sub-label">(최대 5장, jpg/png/heic, 각 10MB 이하)</span></label>
-            <div className="upload-area">
+            <div className="upload-area" onClick={handleMockUpload}>
               <div className="upload-content">
                 <ImageIcon size={32} color="#94a3b8" />
                 <p className="upload-title">사진을 여기에 드래그하거나 클릭하여 업로드</p>
@@ -127,18 +151,21 @@ export default function SupportClaim() {
                 <button className="btn-upload">↑ 파일 선택</button>
               </div>
             </div>
-            {/* 업로드된 파일 미리보기 (정적 UI) */}
-            <div className="upload-preview">
-              <div className="preview-item">
-                <ImageIcon size={24} color="#cbd5e1" />
+            
+            {photos.length > 0 && (
+              <div className="upload-preview">
+                {photos.map((p, idx) => (
+                  <div className="preview-item checked" key={idx}>
+                    <CheckCircle size={24} color="#3b82f6" />
+                  </div>
+                ))}
+                {photos.length < 5 && (
+                  <div className="preview-item add-more" onClick={handleMockUpload}>
+                    +
+                  </div>
+                )}
               </div>
-              <div className="preview-item checked">
-                <CheckCircle size={24} color="#3b82f6" />
-              </div>
-              <div className="preview-item add-more">
-                +
-              </div>
-            </div>
+            )}
           </div>
 
           <div className="form-section-title">환불 계좌 정보</div>
@@ -174,15 +201,15 @@ export default function SupportClaim() {
             NexusHub 남양주터미널은 보상 처리를 위해 접수자 성명, 연락처, 계좌정보를 수집합니다. 수집된 정보는 클레임 처리 완료 후 파기됩니다.
           </div>
           <label className="checkbox-label">
-            <input type="checkbox" />
+            <input type="checkbox" checked={isAgreed} onChange={e => setIsAgreed(e.target.checked)} />
             <span>개인정보 수집 및 이용에 동의합니다 (필수)</span>
           </label>
 
           <div className="form-actions">
             <button className="btn-cancel">취소</button>
             <div className="right-actions">
-              <button className="btn-draft">임시 저장</button>
-              <button className="btn-submit">클레임 접수하기</button>
+              <button className="btn-draft" onClick={() => alert('임시 저장되었습니다.')}>임시 저장</button>
+              <button className="btn-submit" onClick={handleSubmit}>클레임 접수하기</button>
             </div>
           </div>
         </div>
