@@ -46,7 +46,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 
-  @include mobile {
+  @media (max-width: 500px) {
     grid-template-columns: 1fr;
   }
 }
@@ -155,8 +155,9 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 
-    @include mobile {
+    @media (max-width: 900px) {
       grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
   }
 

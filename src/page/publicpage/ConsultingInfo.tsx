@@ -119,7 +119,7 @@ export default function ConsultingInfo() {
         <div className="ci-intro">
           <h2 className="ci-intro__title">상담 안내</h2>
           <p className="ci-intro__desc">
-            남양주터미널 전담 매니저가 진천·오뉴·넬네·탁배권 역에 꼭 맞는 물류
+            남양주터미널 전담 매니저가 진접·오남·별내 권역에 꼭 맞는 물류
             솔루션을 1:1로 설계해 드립니다. 아래에서 필요한 분야를 선택하면 신청
             폼에 자동으로 반영됩니다. 상담과 견적은 100% 무료입니다.
           </p>
