@@ -240,6 +240,12 @@
 
   @media (max-width: 768px) {
     padding: 20px;
+
+    .faq-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
     
     .faq-list .faq-item .faq-answer {
       margin-left: 0;

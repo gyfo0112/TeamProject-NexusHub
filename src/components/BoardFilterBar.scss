@@ -46,6 +46,7 @@
     margin: 0;
     box-shadow: none;
     transition: border-color 0.2s;
+    box-sizing: border-box;
 
     &:focus-within {
       border-color: #3b82f6;
@@ -54,6 +55,7 @@
 
     input {
       flex: 1;
+      min-width: 0; /* flex overflow 방지 */
       border: none;
       background: none;
       padding: 8px;
@@ -77,6 +79,11 @@
       cursor: pointer;
       transition: background 0.2s;
       align-self: stretch;
+      white-space: nowrap; /* 글씨 줄바꿈 방지 */
+      flex-shrink: 0; /* 버튼 크기 축소 방지 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         background: #2563eb;
@@ -93,21 +100,15 @@
     }
     
     .filter-tabs {
-      overflow-x: auto;
       width: 100%;
-      padding-bottom: 8px;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
+      gap: 8px;
       
       button {
         white-space: nowrap;
+        padding: 6px 14px;
+        font-size: 13.5px;
       }
-      
-      /* 스크롤바 숨기기 */
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      -ms-overflow-style: none;
-      scrollbar-width: none;
     }
   }
 }
