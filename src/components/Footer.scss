@@ -23,6 +23,10 @@ footer{background:var(--navy);color:#cbd5e1;padding:64px 0 28px;}
 
 
 @media (max-width: 900px) {
+  footer {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
   .foot-grid { 
     grid-template-columns: 1.6fr 1fr 1fr 1.3fr; 
     gap: 20px;
