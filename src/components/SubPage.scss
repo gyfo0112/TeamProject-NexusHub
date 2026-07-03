@@ -20,6 +20,10 @@
 
   .sub-hero-content {
     text-align: left;
+    
+    @include mobile {
+      padding: 0 11px;
+    }
   }
 
   .breadcrumbs {
@@ -149,6 +153,7 @@
       white-space: nowrap;
       display: flex;
       width: 100%;
+      justify-content: center; /* 추가: 중앙 정렬 */
 
       &::-webkit-scrollbar { display: none; }
       -ms-overflow-style: none;
@@ -156,9 +161,9 @@
     }
 
     &-link {
-      padding: 14px 16px;
+      padding: 16px 20px; /* 패딩 약간 확대 */
       border-radius: 0;
-      font-size: 14.5px;
+      font-size: 16px; /* 폰트 크기 확대 (기존 14.5px) */
       white-space: nowrap;
       flex-shrink: 0;
       position: relative; /* 탭 선 그리기용 */
@@ -191,16 +196,16 @@
   /* 500px 이하: 폰트 및 패딩 축소 */
   @media (max-width: 500px) {
     &-link {
-      font-size: 13px;
-      padding: 10px 8px;
+      font-size: 15px; /* 기존 13px -> 15px */
+      padding: 12px 10px;
     }
   }
 
   /* 440px 이하: 4개 탭이 한 화면에 꽉 차게 들어가도록 타이트하게 조절 */
   @media (max-width: 440px) {
     &-link {
-      font-size: 12px;
-      padding: 10px 6px;
+      font-size: 14px; /* 기존 12px -> 14px */
+      padding: 12px 8px;
       letter-spacing: -0.5px;
     }
   }
@@ -208,8 +213,8 @@
   /* 390px 이하: 폰트 초소형으로 축소 */
   @media (max-width: 390px) {
     &-link {
-      font-size: 11px;
-      padding: 8px 4px;
+      font-size: 13px; /* 기존 11px -> 13px */
+      padding: 10px 6px;
       letter-spacing: -0.5px;
     }
   }
