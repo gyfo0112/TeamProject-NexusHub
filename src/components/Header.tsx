@@ -54,7 +54,7 @@ export default function Header() {
             <Link to="/login" className="login">
               <IconUser />로그인
             </Link>
-            <a href={import.meta.env.VITE_DASHBOARD_URL} className="staff">
+            <a href={import.meta.env.VITE_DASHBOARD_URL || 'https://team-project-nexus-hub-dashboard.vercel.app/admin/login'} className="staff">
               <IconLock />직원 로그인
             </a>
             
@@ -85,7 +85,7 @@ export default function Header() {
             <Link to="/login" className="mobile-login" onClick={() => setIsMobileOpen(false)}>
               <IconUser />로그인
             </Link>
-            <a href={import.meta.env.VITE_DASHBOARD_URL} className="mobile-staff" onClick={() => setIsMobileOpen(false)}>
+            <a href={import.meta.env.VITE_DASHBOARD_URL || 'https://team-project-nexus-hub-dashboard.vercel.app/admin/login'} className="mobile-staff" onClick={() => setIsMobileOpen(false)}>
               <IconLock />직원 로그인
             </a>
           </div>
