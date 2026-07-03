@@ -18,6 +18,18 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const getDashboardUrl = () => {
+    let url = import.meta.env.VITE_DASHBOARD_URL || 'https://team-project-nexus-hub-dashboard.vercel.app/admin/login';
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
+    }
+    // 기본 도메인만 입력된 경우 로그인 경로 추가
+    if (url.endsWith('.app') || url.endsWith('.app/')) {
+      url = url.replace(/\/$/, '') + '/admin/login';
+    }
+    return url;
+  };
+
   return (
     <header className={`${isScrolled ? 'scrolled' : ''} ${isMobileOpen ? 'mobile-open' : ''}`}>
       <div className="container">
@@ -54,7 +66,7 @@ export default function Header() {
             <Link to="/login" className="login">
               <IconUser />로그인
             </Link>
-            <a href={import.meta.env.VITE_DASHBOARD_URL} className="staff">
+            <a href={getDashboardUrl()} className="staff">
               <IconLock />직원 로그인
             </a>
             
@@ -85,7 +97,7 @@ export default function Header() {
             <Link to="/login" className="mobile-login" onClick={() => setIsMobileOpen(false)}>
               <IconUser />로그인
             </Link>
-            <a href={import.meta.env.VITE_DASHBOARD_URL} className="mobile-staff" onClick={() => setIsMobileOpen(false)}>
+            <a href={getDashboardUrl()} className="mobile-staff" onClick={() => setIsMobileOpen(false)}>
               <IconLock />직원 로그인
             </a>
           </div>
