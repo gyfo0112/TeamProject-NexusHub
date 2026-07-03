@@ -14,7 +14,7 @@ header {
 header.scrolled {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15); /* 스크롤 시 그림자 추가 */
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;padding:0 11px;}
 .logo{display:flex;align-items:center;gap:10px;color:#fff;}
 .logo .mark{width:40px;height:40px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;}
 .logo .mark img{height:22px;width:auto;}
