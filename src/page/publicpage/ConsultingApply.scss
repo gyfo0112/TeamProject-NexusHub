@@ -71,8 +71,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px 24px;
 
-  @include mobile {
+  @media (max-width: 500px) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -153,5 +154,22 @@
 
   &:active {
     transform: translateY(0);
+  }
+}
+
+/* ===== 소형 모바일 (500px 이하) - 폰트/여백 축소 ===== */
+@media (max-width: 500px) {
+  .ca-header__title {
+    font-size: 19px;
+  }
+
+  .ca-type-btn {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .ca-submit {
+    padding: 16px;
+    font-size: 15px;
   }
 }
