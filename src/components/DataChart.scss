@@ -41,6 +41,7 @@
 }
 
 @media (max-width: 480px) {
+  .data .grid-2 > div:last-child { padding: 0 16px; }
   .bars { height: 90px; }
   .bar-x span { font-size: 8px; }
 }

@@ -39,3 +39,7 @@
   .service-panel { padding: 11px; }
   .svc-card { padding: 11px; }
 }
+
+@media (max-width: 450px) {
+  .services .grid-2 > div:first-child { padding: 0 16px; }
+}
