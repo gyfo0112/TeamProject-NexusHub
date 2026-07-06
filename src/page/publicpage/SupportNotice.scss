@@ -230,9 +230,22 @@
         padding: 16px !important;
 
         .col-id { display: none; }
-        .col-type { width: auto; text-align: left; }
-        .col-title { padding-left: 0; width: 100%; }
-        .col-date { width: auto; text-align: left; font-size: 12px; }
+        .col-type { width: auto; text-align: left; margin-bottom: 2px; }
+        .col-title { 
+          padding-left: 0; 
+          width: 100%; 
+          align-items: flex-start;
+          
+          .new-badge {
+            margin-top: 4px;
+            flex-shrink: 0;
+          }
+          
+          .title-text {
+            word-break: keep-all;
+          }
+        }
+        .col-date { width: auto; text-align: left; font-size: 12px; margin-top: 4px; }
       }
     }
   }
