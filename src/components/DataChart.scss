@@ -36,8 +36,12 @@
   .data .grid-2 > div:first-child { flex: none; width: 100%; }
 }
 
+@media (max-width: 768px) {
+  .chart-card { padding: 11px; }
+}
+
 @media (max-width: 480px) {
-  .chart-card { padding: 16px; }
+  .data .grid-2 > div:last-child { padding: 0 16px; }
   .bars { height: 90px; }
   .bar-x span { font-size: 8px; }
 }

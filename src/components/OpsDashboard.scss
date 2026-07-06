@@ -41,3 +41,12 @@
   .dash-table .row .code { width: 100%; }
   .dash-table .row .where { width: 100%; }
 }
+
+@media (max-width: 768px) {
+  .dash { padding: 11px; }
+  .dash-stats .st { padding: 11px; }
+}
+
+@media (max-width: 450px) {
+  .ops .grid-2 > div:first-child { padding: 0 16px; }
+}
