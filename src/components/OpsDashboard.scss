@@ -41,3 +41,8 @@
   .dash-table .row .code { width: 100%; }
   .dash-table .row .where { width: 100%; }
 }
+
+@media (max-width: 768px) {
+  .dash { padding: 11px; }
+  .dash-stats .st { padding: 11px; }
+}
