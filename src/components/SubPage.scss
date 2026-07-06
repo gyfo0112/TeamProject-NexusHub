@@ -137,7 +137,7 @@
     min-width: 0;
     margin-top: 0;
     margin-bottom: 20px;
-    padding: 24px 11px 0; /* 상단 여백 24px, 양옆 마진(패딩) 11px로 통일 */
+    padding: 24px 0 0; /* 컨테이너 자체 여백이 있으므로 좌우 여백은 0으로 수정 */
     border-radius: 0;
     box-shadow: none;
     border-bottom: none;
@@ -154,7 +154,7 @@
       background: #fff;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      padding: 14px 16px;
+      padding: 11px;
       font-size: 15px;
       font-weight: 700;
       color: var(--navy);
@@ -190,7 +190,7 @@
       text-align: center;
       border-bottom: 1px solid #f1f5f9;
       white-space: normal;
-      padding: 14px 10px; /* 간격 조정 */
+      padding: 11px; /* 11px로 통일 */
 
       .icon {
         display: none;
