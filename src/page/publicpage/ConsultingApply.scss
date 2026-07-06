@@ -5,6 +5,15 @@
   display: flex;
   flex-direction: column;
   gap: 28px;
+
+  /* 좁은 화면에서 부모(.subpage-container)의 11px 패딩이 너무 좁아
+     텍스트/폼이 화면 끝에 붙는 느낌을 주므로, 이 페이지에서만 여백 보강 */
+  @media (max-width: 768px) {
+    padding: 0 6px;
+  }
+  @media (max-width: 500px) {
+    padding: 0 10px;
+  }
 }
 
 /* 헤더 */
