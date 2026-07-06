@@ -5,10 +5,12 @@ import { Menu, X } from 'lucide-react'
 
 import { Link } from 'react-router-dom'
 import { menus } from '../data/menuData'
+import { useAuth } from '../contexts/AuthContext'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const { userId, logout } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,9 +65,15 @@ export default function Header() {
           </ul>
 
           <div className="nav-right">
-            <Link to="/login" className="login">
-              <IconUser />로그인
-            </Link>
+            {userId ? (
+              <a onClick={logout} className="login" style={{ cursor: 'pointer' }}>
+                <IconUser />로그아웃
+              </a>
+            ) : (
+              <Link to="/login" className="login">
+                <IconUser />로그인
+              </Link>
+            )}
             <a href={getDashboardUrl()} className="staff">
               <IconLock />직원 로그인
             </a>
@@ -94,9 +102,15 @@ export default function Header() {
             </div>
           ))}
           <div className="mobile-nav-footer">
-            <Link to="/login" className="mobile-login" onClick={() => setIsMobileOpen(false)}>
-              <IconUser />로그인
-            </Link>
+            {userId ? (
+              <a onClick={() => { logout(); setIsMobileOpen(false); }} className="mobile-login" style={{ cursor: 'pointer' }}>
+                <IconUser />로그아웃
+              </a>
+            ) : (
+              <Link to="/login" className="mobile-login" onClick={() => setIsMobileOpen(false)}>
+                <IconUser />로그인
+              </Link>
+            )}
             <a href={getDashboardUrl()} className="mobile-staff" onClick={() => setIsMobileOpen(false)}>
               <IconLock />직원 로그인
             </a>
