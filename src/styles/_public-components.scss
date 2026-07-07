@@ -9,10 +9,12 @@
   .container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding-left: 24px;
+    padding-right: 24px;
 
     @include mobile {
-      padding: 0 11px;
+      padding-left: 11px;
+      padding-right: 11px;
     }
   }
 
