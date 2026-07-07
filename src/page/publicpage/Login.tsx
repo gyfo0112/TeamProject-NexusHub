@@ -37,6 +37,16 @@ export default function Login() {
             <p className="welcome-text">넥서스허브에 오신 것을 환영합니다.</p>
           </div>
 
+          <div className="login-test-info">
+            <div className="info-title">
+              <span className="info-icon">💡</span> 테스트 계정 안내
+            </div>
+            <div className="info-content">
+              <p><span>테스트 계정 1</span> ID: <strong>user1</strong> / PW: <strong>1234</strong></p>
+              <p><span>테스트 계정 2</span> ID: <strong>user2</strong> / PW: <strong>1234</strong></p>
+            </div>
+          </div>
+
           <form onSubmit={handleLogin} className="login-form">
             <div className="input-group">
               <label>아이디</label>
